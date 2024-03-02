@@ -1,0 +1,220 @@
+@import "./fonts.css";
+@import "./root.css";
+@import "./global.css";
+
+.base-text {
+    font-weight: 500;
+    font-size: clamp(16px, 2.3vw, 50px);
+    margin: 0;
+    color: var(--base-text-color);
+}
+
+.main-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 280px;
+    max-width: fit-content;
+    padding: clamp(10px, 2vw, 30px) clamp(30px, 2.4vw, 60px);
+    border-radius: 100px;
+    background-color: var(--main-btn-bg-color);
+    color: var(--main-btn-color);
+}
+
+.main-btn span {
+    display: block;
+    font-weight: 600;
+    font-size: clamp(14px, 1.4vw,32px);
+    text-transform: uppercase;
+    text-align: center;
+    transition: opacity var(--main-transition);
+    z-index: 2;
+}
+
+@media(hover: hover) {
+    .main-btn:hover span {
+        opacity: .6;
+    }
+}
+
+@media(max-width: 876px) {
+    .main-btn {
+        position: relative;
+    }
+
+    .main-btn::before,
+    .main-btn::after {
+        position: absolute;
+        content: '';
+        border-radius: 100px;
+    }
+
+    .main-btn::before {
+        top: -4px;
+        left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        background-color: rgba(255, 255, 255, 0.5);
+
+        z-index: -1;
+    }
+
+    .main-btn::after {
+        top: 0;
+        left: 0;
+        width:100%;
+        height: 100%;
+        background-color: var(--black);
+        z-index: 0;
+    }
+}
+
+@media(max-width: 534px) {
+    .main-btn span {
+        max-width: 180px;
+    }
+}
+
+.main-btn--accent {
+    color: var(--accent-color);
+}
+
+.header {
+    width: 100%;
+    height: fit-content;
+    padding: clamp(40px, 5vw, 100px) 0;
+    margin-bottom: clamp(30px, 6vw, 40px);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header a {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 24px;
+    transition: opacity var(--main-transition);
+}
+
+.header a img {
+    width: 100%;
+    height: auto;
+    max-height: clamp(15px, 4vw, 50px);
+    object-fit: contain;
+}
+
+@media(hover: hover) {
+    .header a:hover {
+        opacity: .6;
+    }
+}
+
+.header a:not(:last-child) {
+    border-right: 1px solid var(--black);
+}
+
+main {
+    position: relative;
+}
+
+.main-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.app {
+    min-height: 200px;
+}
+
+.main-bg picture {
+    display: flex;
+    height: 100%;
+}
+
+.main-bg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.main-content__grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 40px clamp(40px, 8vw, 190px);
+    margin-bottom: 30px;
+}
+
+.main-content__grid-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: fit-content;
+}
+
+.main-content__grid-section .main-btn:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.main-content__grid-section img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 35vw;
+    min-height: 220px;
+    object-fit: contain;
+    object-position: top;
+    filter: drop-shadow(6px 7px 4px rgba(0, 0, 0, 0.25));
+}
+
+@media(max-width: 876px) {
+    .main-content__grid-section img {
+        max-height: 50vw;
+    }
+}
+
+.main-content__grid-section:nth-child(3) {
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.main-content__grid-section:nth-child(2) {
+    margin-top: auto;
+}
+
+@media(max-width: 876px) {
+    .main-content__grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content__grid-section:nth-child(2) {
+        order: 3;
+    }
+
+    .main-content__grid-section .main-btn {
+        max-width: 100%;
+    }
+}
+
+.main-content__title-img {
+    display: block;
+    width: 100%;
+    max-width: clamp(210px, 50vw, 960px);
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    margin-bottom: clamp(60px, 6vw, 160px);
+}
+

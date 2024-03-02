@@ -1,0 +1,14 @@
+:root {
+    --base-font: 'Graphic';
+
+    --main-bg-color: #ffffff;
+    --base-text-color: #000000;
+    --accent-color: #e83138;
+    --main-btn-bg-color: #000000;
+    --main-btn-color: #ffffff;
+    --black: #000000;
+
+    --retina-dpi: 144dpi;
+    --retina-dppx: 1.5dppx;
+    --main-transition: .25s ease-in;
+}
