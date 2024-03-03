@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  Modernizr.on("webp", function (supported) {
-    if (supported) {
-      document.querySelector("html").classList.add("webp");
-    }
-  });
+  setTimeout(() => {
+    document.querySelector(".overlay").classList.add("hidden");
 
-  AOS.init({
-    duration: 1000,
-  });
+    AOS.init({
+      duration: 1000,
+    });
+  }, 300);
 });
