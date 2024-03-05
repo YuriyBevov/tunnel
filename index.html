@@ -8,7 +8,7 @@
     <title>Есть ли свет в конце тоннеля ?</title>
 </head>
 <body>
-    <header 
+    <header
         class="header"
         data-aos="fade-up"
         data-aos-delay="500"
@@ -27,7 +27,7 @@
         <section class="main-content">
             <div class="container">
                 <h1 class="visually-hidden">Есть ли свет в конце тоннеля ?</h1>
-                <img 
+                <img
                     src="./assets/img/title.svg"  alt="" width="960" height="450" aria-hidden="true" class="main-content__title-img"
                     data-aos="fade-up"
                     data-aos-duration="1500"
@@ -38,9 +38,9 @@
                             data-aos-anchor-placement="top-bottom"
                 >
                     <div class="main-content__grid-section">
-                        <p 
+                        <p
                             class="base-text"
-                            
+
                         >
                             Несколько сотен человек внезапно оказываются запертыми под Москвой-рекой. Причина неизвестна, спасение не приходит, и спустя считаные часы всем начинает казаться, что мира за пределами тоннеля не осталось. Важно только то, что внутри.
                         </p>
@@ -51,14 +51,14 @@
                         >
                             <span>Читать книгу в&nbsp;букмейте</span>
                         </a>
-                        <a href="#" class="main-btn main-btn--accent"
+                        <a href="#gameCanvas" class="main-btn main-btn--accent"
 
                         >
                             <span>Познакомиться с&nbsp;героями&nbsp;книги&nbsp;в&nbsp;игре</span>
                         </a>
                     </div>
                     <div class="main-content__grid-section">
-                        <img 
+                        <img
                             src="./assets/img/book.png" alt="Обложка книги" width="470" height="740"
 
                         >
@@ -68,7 +68,7 @@
         </section>
 
         <section class="app">
-            <div class="container">
+            <div id="game-container" class="container" style="padding: 0;">
                 <!-- Тут будет игра -->
             </div>
         </section>
@@ -78,5 +78,27 @@
     <script src="./assets/js/aos.js"></script>
     <script src="./assets/js/modernizr.js"></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/pixi.js"></script>
+    <script src="./assets/js/game.js"></script>
+    <script>
+        window.addEventListener('load', async () => {
+            const orderCallback = () => {
+                console.log('ORDER CALLBACK');
+            };
+            TONNEL_GAME.connectingToAPI([{orderCallback}]);
+            TONNEL_GAME.newInstance('game-container').then((game) => {
+                console.log('GAME INSTANCE', game);
+            }).catch((error) => {
+                console.error('GAME ERROR', error);
+            });
+
+        });
+    </script>
+    <style>
+        #gameCanvas {
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+    </style>
 </body>
 </html>
