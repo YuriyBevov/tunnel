@@ -83,15 +83,10 @@
     <script>
         window.addEventListener('load', async () => {
             const orderCallback = () => {
-                console.log('ORDER CALLBACK');
+                window.open('https://bookmate.ru/books/ZBbq6i6e', '_blank');
             };
             TONNEL_GAME.connectingToAPI([{orderCallback}]);
-            TONNEL_GAME.newInstance('game-container').then((game) => {
-                console.log('GAME INSTANCE', game);
-            }).catch((error) => {
-                console.error('GAME ERROR', error);
-            });
-
+            await TONNEL_GAME.newInstance('game-container');
         });
     </script>
     <style>
